@@ -1,0 +1,148 @@
+﻿@using Bricons.Utilities
+@using Microsoft.AspNetCore.Identity
+@using Bricons.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bricons</title>
+ <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Bricons.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/perfil.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="header">
+        <header>
+            <div class="logo-menu">
+                <img src="~/img/logo.png" alt="">
+                <ion-icon id="icon-menu" name="menu-outline"></ion-icon>
+            </div>
+            <div class="menu">
+                <nav id="menu-des">
+                    <ul>
+              
+
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <li><a asp-controller="Home" asp-action="Index">INICIO</a></li>
+                           @* <li><a href="#">PRODUCTOS</a></li>*@
+
+                            <li>
+                                <a id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                            <li>
+                                <a id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            @if (User.IsInRole(CNT.Admin))
+                            {
+                                <li><a asp-controller="Usuarios" asp-action="Index">USUARIOS</a></li>
+                                <li><a asp-controller="Categoriums" asp-action="Index">CATEGORIAS</a></li>
+                                <li><a asp-controller="Productoes" asp-action="Index">PRODUCTOS</a></li>
+                                <li><a asp-controller="Pedidos" asp-action="Index">PEDIDOS</a></li>
+                                <li><a asp-controller="Programaciones" asp-action="Index">PROGRAMACIONES</a></li>
+
+
+                                <li >
+                                    <a id="manage" asp-controller="Usuarios" asp-action="Perfil" title="Manage">Perfil</a>
+                                </li>
+                                <li>
+                                    
+                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0"><ion-icon name="log-out-outline"></ion-icon></button>
+                                    </form>
+                                </li>
+                              
+                               
+
+                            }    @* Usuario*@
+                            else if (User.IsInRole(CNT.Usuario))
+                            {
+                                <li><a asp-controller="Home" asp-action="Index">INICIO</a></li>
+                                <li><a asp-controller="Productoes" asp-action="IndexU">PRODUCTOS</a></li>
+                                <li><a asp-controller="Pedidos" asp-action="IndexU">PEDIDOS</a></li>
+                                <li><a asp-controller="Programaciones" asp-action="IndexU">PROGRAMACIONES</a></li>
+                                <li >
+                                    <a id="manage" asp-controller="Usuarios" asp-action="Perfil" title="Manage">Perfil</a>
+                                </li>
+                                <li>
+                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0"><ion-icon name="log-out-outline"></ion-icon></button>
+                                    </form>
+                                </li>
+                            }
+                        }
+                   
+                       
+                       
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+    </div>
+    @*<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bricons</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Productoes" asp-action="Index">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Categoriums" asp-action="Index">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pedidos" asp-action="Index">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Programaciones" asp-action="Index">Programaciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>*@
+    <div class="container">
+        <main role="main" class="pb-3" style="margin-top:150px">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Bricons - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

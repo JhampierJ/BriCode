@@ -1,0 +1,161 @@
+﻿@page
+@using Bricons.Utilities;
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="registro ">
+    <div class="container container-r">
+        <div class="parte2 parte2-r">
+            <div class="img">
+                <img class="img-r" src="~/img/img-registro.jpg" alt="">
+            </div>
+        </div>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+            <h2>Registro</h2>
+            <div asp-validation-summary="ModelOnly" role="alert"></div>
+
+            <span asp-validation-for="Input.Nombre" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="person-outline"></ion-icon>
+                <input asp-for="Input.Nombre" autocomplete="Nombre" aria-required="true" type="text" placeholder="Nombres">
+            </div>
+            <span asp-validation-for="Input.Apellidos" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="person"></ion-icon>
+                <input asp-for="Input.Apellidos" autocomplete="Apellidos" aria-required="true" type="text" placeholder="Apellidos">
+            </div>
+            <span asp-validation-for="Input.Dni" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input asp-for ="Input.Dni" autocomplete="Dni" aria-required="true" type="number" placeholder="DNI">
+            </div>
+            <span asp-validation-for="Input.NombreUsuario" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="person-circle-outline"></ion-icon>
+                <input asp-for="Input.NombreUsuario" autocomplete="NombreUsuario" aria-required="true" type="text" placeholder="Nombre Usuario">
+            </div>
+            <span asp-validation-for="Input.Email" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input asp-for ="Input.Email" autocomplete="username" aria-required="true" type="email" placeholder="Email">
+            </div>
+            <span asp-validation-for="Input.Password" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input input asp-for="Input.Password" autocomplete="new-password" aria-required="true" type="password" placeholder="Contraseña">
+            </div>
+            <span asp-validation-for="Input.ConfirmPassword" class="alerta"></span>
+            <div class="inputs inputs-r">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" type="password" placeholder="Contraseña">
+            </div>
+
+            <div class="roles">
+                <span>Roles</span>
+                <input type="radio" name="radUserRole" value="@CNT.Admin" />@CNT.Admin
+                <input type="radio" name="radUserRole" value="@CNT.Usuario" />@CNT.Usuario
+            </div>
+          
+
+            <button id="registerSubmit" type="submit" >Registrarse</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Nombre" class="form-control" autocomplete="Nombre" aria-required="true" placeholder="Nombres" />
+                <label asp-for="Input.Nombre">Nombres</label>
+                <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Apellidos" class="form-control" autocomplete="Apellidos" aria-required="true" placeholder="Apellidos" />
+                <label asp-for="Input.Apellidos">Apellidos</label>
+                <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Dni" class="form-control" autocomplete="Dni" aria-required="true" placeholder="Dni" />
+                <label asp-for="Input.Dni">Dni</label>
+                <span asp-validation-for="Input.Dni" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.NombreUsuario" class="form-control" autocomplete="NombreUsuario" aria-required="true" placeholder="Nombre de Usuario" />
+                <label asp-for="Input.NombreUsuario">Nombre Usuario</label>
+                <span asp-validation-for="Input.NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email">Email</label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-3">Roles</div>
+                <div class="col">
+                    <input type="radio" name="radUserRole" value="@CNT.Admin" />@CNT.Admin
+                    <input type="radio" name="radUserRole" value="@CNT.Usuario" />@CNT.Usuario
+                </div>
+            </div>
+
+
+
+
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

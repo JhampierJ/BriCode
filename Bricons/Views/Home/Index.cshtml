@@ -1,0 +1,49 @@
+﻿@using Bricons.Areas.Identity.Data;
+@using Bricons.Utilities;
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="seccion1">
+    <img src="~/img/home-img.jpg" alt="">
+</div>
+<div class="seccion2">
+    <div class="parte1">
+        <h1>BRICONS</h1>
+        <div class="linea"></div>
+        <div class="linea"></div>
+        <h2>Construye tus sueños, ladrillo a ladrillo, con nuestra calidad incomparable.</h2>
+        <p class="parrafo">En nuestra ladriería, te brindamos una atención al cliente excepcional con asesoramiento personalizado, productos de calidad y un servicio inigualable que supera tus expectativas.</p>
+        <p class="parrafo">Entendemos que cada cliente y proyecto son únicos. Nuestro equipo amigable está aquí para escuchar tus necesidades y ofrecerte recomendaciones expertas, garantizando los mejores ladrillos para construcciones duraderas y estéticas.</p>
+
+
+        <button >Realizar Pedido!</button>
+      @*  @if (!SignInManager.IsSignedIn(User))
+        {
+          
+         
+        }
+        else
+        {
+            @if (User.IsInRole(CNT.Admin))
+            {
+                <button asp-controller="Pedidos" asp-action="Index">Realizar Pedido!</button>
+            }
+            else if (User.IsInRole(CNT.Usuario))
+            {
+                <button asp-controller="Pedidos" asp-action="IndexU">Realizar Pedido!</button>
+            }
+        }
+*@
+     
+
+
+    </div>
+    <div class="parte2">
+        <img src="~/img/img2.jpg" alt="">
+    </div>
+</div>
