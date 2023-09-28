@@ -88,10 +88,9 @@ namespace Bricons.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "El dni es obligatorio")]
             [Display(Name = "Dni")]
             public string Dni { get; set; }
-            [Required(ErrorMessage = "El nombre de usuario es obligatorio")]
-            [StringLength(8, MinimumLength = 1, ErrorMessage = "Solo 8 caracteres")]
-            [Display(Name = "Nombre de Usuario")]
-            public string NombreUsuario { get; set; }
+            [Range(900000000, 999999999, ErrorMessage = "El valor debe ser correcto.")]
+            [Display(Name = "Telefono")]
+            public int Telefono { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -140,9 +139,8 @@ namespace Bricons.Areas.Identity.Pages.Account
                     Nombre = Input.Nombre,
                     Apellidos = Input.Apellidos,
                     Dni = Input.Dni,
-                    NombreUsuario =
-                    Input.NombreUsuario
-                }; ;
+                    Telefono =Input.Telefono
+                };
                 //user.EmailConfirmed = true;
 
 
@@ -199,8 +197,10 @@ namespace Bricons.Areas.Identity.Pages.Account
                     }
                     else
                     {
+                        Console.Write("----------------------------> Registro" );
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
+                      
                     }
                 }
                 foreach (var error in result.Errors)
@@ -212,7 +212,7 @@ namespace Bricons.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
-
+      
         private ApplicationUser CreateUser()
         {
             try

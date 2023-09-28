@@ -7,43 +7,35 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<div class="main">
 
-<div class="seccion1">
-    <img src="~/img/home-img.jpg" alt="">
-</div>
-<div class="seccion2">
-    <div class="parte1">
-        <h1>BRICONS</h1>
-        <div class="linea"></div>
-        <div class="linea"></div>
-        <h2>Construye tus sueños, ladrillo a ladrillo, con nuestra calidad incomparable.</h2>
-        <p class="parrafo">En nuestra ladriería, te brindamos una atención al cliente excepcional con asesoramiento personalizado, productos de calidad y un servicio inigualable que supera tus expectativas.</p>
-        <p class="parrafo">Entendemos que cada cliente y proyecto son únicos. Nuestro equipo amigable está aquí para escuchar tus necesidades y ofrecerte recomendaciones expertas, garantizando los mejores ladrillos para construcciones duraderas y estéticas.</p>
-
-
-        <button >Realizar Pedido!</button>
-      @*  @if (!SignInManager.IsSignedIn(User))
-        {
-          
-         
-        }
-        else
-        {
-            @if (User.IsInRole(CNT.Admin))
-            {
-                <button asp-controller="Pedidos" asp-action="Index">Realizar Pedido!</button>
-            }
-            else if (User.IsInRole(CNT.Usuario))
-            {
-                <button asp-controller="Pedidos" asp-action="IndexU">Realizar Pedido!</button>
-            }
-        }
-*@
-     
-
-
+    <div class="section-1">
+        <div class="texto">
+            <span class="text-bricode">BRICONS</span>
+            <p class="parrafo-bricode">Tu obra merece los mejores cimientos, merece nuestros ladrillos</p>
+        </div>
+        <ion-icon class="flecha-abajo" name="arrow-down-outline"></ion-icon>
+        <img class="img-1" src="/img/home/home-img1.jpg" alt="img1">
+        <img src="/img/home/home-img2.jpg" alt="">
+        <img src="/img/home/home-img3.jpg" alt="">
+        <img src="/img/home/home-img4.jpg" alt="">
     </div>
-    <div class="parte2">
-        <img src="~/img/img2.jpg" alt="">
+
+    <div class="seccion2">
+        <div class="parte1">
+            <h1>BRICONS</h1>
+            <div class="linea"></div>
+            <div class="linea"></div>
+            <h2>Construye tus sueños, ladrillo a ladrillo, con nuestra calidad incomparable.</h2>
+            <p class="parrafo">En nuestra ladriería, te brindamos una atención al cliente excepcional con asesoramiento personalizado, productos de calidad y un servicio inigualable que supera tus expectativas.</p>
+            <p class="parrafo">Entendemos que cada cliente y proyecto son únicos. Nuestro equipo amigable está aquí para escuchar tus necesidades y ofrecerte recomendaciones expertas, garantizando los mejores ladrillos para construcciones duraderas y estéticas.</p>
+
+
+            <button>Realizar Pedido!</button>
+        </div>
+        <div class="parte2">
+            <img src="/img/home/section2-img.jpg" alt="">
+        </div>
     </div>
+
 </div>

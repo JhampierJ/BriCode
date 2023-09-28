@@ -1,0 +1,93 @@
+﻿footer {
+    position: absolute;
+    width: 100%;
+    background-color: #2B3035;
+}
+
+    footer .contenedor {
+        max-width: 1280px;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: row;
+        color: white;
+        padding: 30px;
+    }
+
+        footer .contenedor .info {
+            width: 300px;
+        }
+
+    footer .info .logotipo {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+    }
+
+        footer .info .logotipo span {
+            font-size: 30px;
+        }
+
+    footer .info p {
+        font-size: 13px;
+    }
+
+    footer .info .logotipo img {
+        width: 35px;
+    }
+    /**/
+    footer .contenedor .opciones {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        footer .contenedor .opciones .opcion {
+            display: flex;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+        }
+
+    footer .opciones .opcion .container {
+    }
+
+    footer .opcion .container .title {
+        font-weight: 600;
+        font-size: 18px;
+        color: #B0B4B0;
+    }
+
+    footer .opcion .container li {
+        list-style: none;
+        margin: 8px auto;
+    }
+
+    footer .opcion .container a {
+        text-decoration: none;
+        color: white;
+        font-size: 13px;
+    }
+
+
+
+@media (max-width: 800px) {
+    footer .contenedor {
+        flex-direction: column;
+    }
+
+        footer .contenedor .info {
+            margin-bottom: 20px;
+        }
+
+        footer .contenedor .opciones .opcion {
+            width: 50%;
+            margin-bottom: 15px;
+            margin-top: 10px justify-content: center;
+            ;
+            justify-content: left;
+        }
+
+        footer .contenedor .info {
+            width: 100%
+        }
+}

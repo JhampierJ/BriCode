@@ -29,17 +29,17 @@
             <span asp-validation-for="Input.Dni" class="alerta"></span>
             <div class="inputs inputs-r">
                 <ion-icon name="lock-closed-outline"></ion-icon>
-                <input asp-for ="Input.Dni" autocomplete="Dni" aria-required="true" type="number" placeholder="DNI">
+                <input asp-for="Input.Dni" autocomplete="Dni" aria-required="true" type="number" placeholder="DNI">
             </div>
-            <span asp-validation-for="Input.NombreUsuario" class="alerta"></span>
+            <span asp-validation-for="Input.Telefono" class="alerta"></span>
             <div class="inputs inputs-r">
                 <ion-icon name="person-circle-outline"></ion-icon>
-                <input asp-for="Input.NombreUsuario" autocomplete="NombreUsuario" aria-required="true" type="text" placeholder="Nombre Usuario">
+                <input asp-for="Input.Telefono" autocomplete="Telefono" aria-required="true" type="text" placeholder="Telefono">
             </div>
             <span asp-validation-for="Input.Email" class="alerta"></span>
             <div class="inputs inputs-r">
                 <ion-icon name="mail-outline"></ion-icon>
-                <input asp-for ="Input.Email" autocomplete="username" aria-required="true" type="email" placeholder="Email">
+                <input asp-for="Input.Email" autocomplete="username" aria-required="true" type="email" placeholder="Email">
             </div>
             <span asp-validation-for="Input.Password" class="alerta"></span>
             <div class="inputs inputs-r">
@@ -57,9 +57,9 @@
                 <input type="radio" name="radUserRole" value="@CNT.Admin" />@CNT.Admin
                 <input type="radio" name="radUserRole" value="@CNT.Usuario" />@CNT.Usuario
             </div>
-          
 
-            <button id="registerSubmit" type="submit" >Registrarse</button>
+
+            <button id="registerSubmit" type="submit">Registrarse</button>
 
         </form>
 

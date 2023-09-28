@@ -1,8 +1,10 @@
 ﻿using Bricons.Areas.Identity.Data;
+using Bricons.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Bricons.Models;
+using System.Reflection.Emit;
 
 namespace Bricons.Data;
 
@@ -13,12 +15,23 @@ public class BriconsContext : IdentityDbContext<ApplicationUser>
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
-        // Customize the ASP.NET Identity model and override the defaults if needed.
-        // For example, you can rename the ASP.NET Identity table names and more.
-        // Add your customizations after calling base.OnModelCreating(builder);
+        modelBuilder.Entity<PedidoProducto>()
+         .HasKey(pp => new { pp.PedidoId, pp.ProductoId });
+
+        modelBuilder.Entity<PedidoProducto>()
+            .HasOne(pp => pp.Pedido)
+            .WithMany(p => p.PedidoProductos)
+            .HasForeignKey(pp => pp.PedidoId);
+
+        modelBuilder.Entity<PedidoProducto>()
+            .HasOne(pp => pp.Producto)
+            .WithMany(p => p.PedidoProductos)
+            .HasForeignKey(pp => pp.ProductoId);
+
+
+        base.OnModelCreating(modelBuilder);
     }
 
     public DbSet<Bricons.Models.Producto> Producto { get; set; } = default!;
@@ -30,5 +43,7 @@ public class BriconsContext : IdentityDbContext<ApplicationUser>
     public DbSet<Bricons.Models.Pedido> Pedido { get; set; } = default!;
 
     public DbSet<Bricons.Models.Programacion> Programacion { get; set; } = default!;
+    public DbSet<Bricons.Models.PedidoProducto> PedidoProducto { get; set; } = default!;
+
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 }
