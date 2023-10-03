@@ -1,9 +1,9 @@
 ﻿namespace Bricons.Models
 {
-    public class PedidoProducto
+    public class CotizacionProducto
     {
-        public int PedidoId { get; set; }
-        public Pedido Pedido { get; set; }
+        public int CotizacionId { get; set; }
+        public Cotizacion Cotizacion { get; set; }
         public int ProductoId { get; set; }
         public Producto Producto { get; set; }
     }

@@ -1,82 +1,58 @@
-﻿@model IEnumerable<Bricons.Models.Producto>
+﻿@model IEnumerable<Bricons.Models.Producto> 
+
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
-<h1>Index</h1>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreProducto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Peso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Largo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ancho)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Altura)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Peso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Largo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ancho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Altura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.NombreCategoria)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="productos">
+    <h1 class="title">LADRILLOS PARA TECHOS</h1>
+    <div class="sect-prod">
+        <div class="productos" id="contenedor-productos">
+
+            @foreach (var pto in @Model)
+            {
+                <div class="producto-container">
+                    <section class="producto">
+                        <div class="p-img">
+                            <a asp-action="Details" asp-route-id="@pto.Id">
+                                <img src="@pto.Imagen" alt="">
+                            </a>
+
+                        </div>
+                        <h2>
+                            @pto.NombreProducto
+                        </h2>
+                        <p>
+
+                        </p>
+                        <input class="btn-aa" id="@pto.Id" type="submit" value="Añadir a carretilla" onclick="clickInputAgregar(this,'@pto.Id')">
+                  
+                    </section>
+                </div>
+                <script>
+                    btnAdir1 = document.getElementById('@pto.Id');
+                    obejtos1 = JSON.parse(localStorage.getItem("ids"));
+                    encontrado1 = false;
+                    obejtos1.forEach((e) => {
+                        if (e.id == @pto.Id) {
+                            encontrado1 = true;
+                            btnAdir1.value = "A\u00F1adido";
+                            btnAdir1.style.backgroundColor = "#FF4A4D";
+                           
+                            return;
+                        }
+                    });
+                    if (!encontrado1) {
+
+                        btnAdir1.value = "A\u00F1adir a carretilla";
+                        btnAdir1.style.backgroundColor = "#E28762";
+                    }
+           
+                </script>
+            }
+        </div>
+    </div>
+</div>

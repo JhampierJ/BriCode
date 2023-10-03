@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bricons</title>
 
@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/categoriaP.css" asp-append-version="true" /> 
+    <link rel="stylesheet" href="~/css/productos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/detalleProducto.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cotizacion.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -25,12 +28,20 @@
                 <div class="search">
                     <ion-icon name="search-outline"></ion-icon>
                     <input id="input-buscador" type="text" placeholder="Buscar Producto">
+                   
                     <ion-icon id="equis-input" name="close-outline"></ion-icon>
                 </div>
                 <span id="btn-cerrar">Cerrar</span>
             </div>
-            <div class="resultados">
-                <span>No hay resultados</span>
+            <div class="resultados" id="miRes">
+            <span>No hay resultados</span>  
+             @*  <div class="result">
+                    <p class="categoriaP">Categoria</p>
+                    <a class="prdo" asp-controller="Productos" asp-action="Details" asp-route-id="2">
+                        <img src="" alt="hola"/>
+                        <span>Nombre del produtos</span>
+                    </a>
+                </div>   *@
             </div>
             <div class="footer">
                 <div class="footer-contenido">
@@ -60,7 +71,7 @@
 
             <div class="controles-usuario">
                 <ion-icon class="btn-abrir" name="search"></ion-icon>
-                <div class="carretilla-container">
+                <a class="carretilla-container"  >
                     <svg class="carretilla" version="1.0" xmlns="http://www.w3.org/2000/svg"
                          width="33" height="33" viewBox="0 0 512.000000 512.000000"
                          preserveAspectRatio="xMidYMid meet">
@@ -86,8 +97,8 @@
                    331 -117z" />
                         </g>
                     </svg>
-                    <span class="numero-productos">10</span>
-                </div>
+                    <span class="numero-productos" id="numero-productos"></span>
+                </a>
 
                @*  <button id="btn-sign-up">INICIAR SESION</button> *@
                 <a id="btn-sign-up" asp-area="Identity" asp-page="/Account/Login">
@@ -98,7 +109,7 @@
             </div>
         </div>
 
-    </header>s
+    </header>
     <main role="main">
         @RenderBody()
     </main>
@@ -168,9 +179,11 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
    <script src="~/js/encabezado.js" asp-append-version="true"></script>
- 
+    <script src="~/js/productos.js" asp-append-version="true"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

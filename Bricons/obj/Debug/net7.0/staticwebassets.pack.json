@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\css\\categoriaP.css"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\cotizacion.css",
+      "PackagePath": "staticwebassets\\css\\cotizacion.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\detalleProducto.css",
+      "PackagePath": "staticwebassets\\css\\detalleProducto.css"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\encabezado.css",
       "PackagePath": "staticwebassets\\css\\encabezado.css"
     },
@@ -19,6 +27,10 @@
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\productos.css",
+      "PackagePath": "staticwebassets\\css\\productos.css"
     },
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\favicon.ico",
@@ -35,6 +47,38 @@
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Categorias\\ImgCategoriaTecho.jpg",
       "PackagePath": "staticwebassets\\img\\Categorias\\ImgCategoriaTecho.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\Caravista.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\Caravista.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\King Kong Caravista.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\King Kong Caravista.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\KingKong30.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\KingKong30.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\LADRILLO-TUBULAR.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\LADRILLO-TUBULAR.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\Pandereta-Acanalada.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\Pandereta-Acanalada.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\Pandereta-Lisa.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\Pandereta-Lisa.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\ladrillo-king-kong-18-hueco.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\ladrillo-king-kong-18-hueco.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\Productos\\Muro\\tabique-8.png",
+      "PackagePath": "staticwebassets\\img\\Productos\\Muro\\tabique-8.png"
     },
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\home\\home-img1.jpg",
@@ -71,6 +115,10 @@
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\home.js",
       "PackagePath": "staticwebassets\\js\\home.js"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\productos.js",
+      "PackagePath": "staticwebassets\\js\\productos.js"
     },
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\script.js",

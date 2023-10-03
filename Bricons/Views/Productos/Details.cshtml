@@ -5,7 +5,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<div class="detalle-producto">
+    <img src="@Model.Imagen" alt="">
+    <div class="detalle">
+        <h2 class="title">@Model.NombreProducto</h2>
+        <p class="descripcion">@Model.Descripcion</p>
+
+        @if (Model.CategoriaID == 1)
+        {
+            <p class="Titulo">Categoría</p>
+            <p class="subTitulo">Ladrillos para Muros</p>
+        }
+        else if (Model.CategoriaID == 2)
+        {
+            <p class="Titulo">Categoría</p>
+            <p class="subTitulo">Ladrillos para Techos</p>
+        }
+        <p class="Titulo">Peso</p>
+        <p class="subTitulo">@Model.Peso Kg</p>
+        <p class="Titulo">Dimenciones</p>   
+        <p class="subTitulo">@Model.Altura x @Model.Ancho x @Model.Largo cm</p>
+        <p class="Titulo">Stock</p>
+        <p class="subTitulo">@Model.Stock</p>
+        <input class="btn-añadir" type="submit" value="Añadir a carretilla">
+    </div>
+</div>
+
+
+@* <h1>Details</h1>
 
 <div>
     <h4>Producto</h4>
@@ -71,3 +98,4 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+ *@

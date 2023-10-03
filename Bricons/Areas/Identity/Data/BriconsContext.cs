@@ -17,17 +17,17 @@ public class BriconsContext : IdentityDbContext<ApplicationUser>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PedidoProducto>()
-         .HasKey(pp => new { pp.PedidoId, pp.ProductoId });
+        modelBuilder.Entity<CotizacionProducto>()
+         .HasKey(pp => new { pp.CotizacionId, pp.ProductoId });
 
-        modelBuilder.Entity<PedidoProducto>()
-            .HasOne(pp => pp.Pedido)
-            .WithMany(p => p.PedidoProductos)
-            .HasForeignKey(pp => pp.PedidoId);
+        modelBuilder.Entity<CotizacionProducto>()
+            .HasOne(pp => pp.Cotizacion)
+            .WithMany(p => p.CotizacionProductos)
+            .HasForeignKey(pp => pp.CotizacionId);
 
-        modelBuilder.Entity<PedidoProducto>()
+        modelBuilder.Entity<CotizacionProducto>()
             .HasOne(pp => pp.Producto)
-            .WithMany(p => p.PedidoProductos)
+            .WithMany(p => p.CotizacionProductos)
             .HasForeignKey(pp => pp.ProductoId);
 
 
@@ -43,7 +43,9 @@ public class BriconsContext : IdentityDbContext<ApplicationUser>
     public DbSet<Bricons.Models.Pedido> Pedido { get; set; } = default!;
 
     public DbSet<Bricons.Models.Programacion> Programacion { get; set; } = default!;
-    public DbSet<Bricons.Models.PedidoProducto> PedidoProducto { get; set; } = default!;
+    public DbSet<Bricons.Models.CotizacionProducto> CotizacionProducto { get; set; } = default!;
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+    public DbSet<Bricons.Models.Cotizacion> Cotizacion { get; set; } = default!;
 }

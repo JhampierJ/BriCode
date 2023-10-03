@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Bricons.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="conti">
+    <div class="container-cot">
+        <div class="contenedor-tabla">
+            <h2 class="title"> COTIZACIÓN </h2>
+            <div class="encabezado">
+                <span class="span1">Producto</span>
+                <span class="span2">Cantidad</span>
+            </div>
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cuerpo">
+                        @foreach (var pto in @Model){
+                            <tr>
+                                <td>
+                                    <img src="@pto.Imagen" alt="">
+                                </td>
+                                <td class="nombre-producto">
+                                    @pto.NombreProducto
+                                </td>
+                                <td class="cantidad">
+                                    <div class="cuadros">
+                                        <div class="cuadro plus-left ">
+                                            <ion-icon name="remove-outline"></ion-icon>
+                                        </div>
+                                        <div class="cuadro "></div>
+                                        <div class="cuadro plus-right ">
+                                            <ion-icon name="add-outline"></ion-icon>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+            <a id="vaciarCot" href="#">Vaciar cotización</a>
+        </div>
+
+        <div class="cotizacion">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi provident exercitationem architecto quo est quia eum earum aliquam neque voluptas, voluptatibus dicta in deleniti qui, at dolor itaque, accusantium deserunt?
+            </p>
+            <button onclick="enviarMensajeWhatsApp()">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <span>FINALIZAR COTOZACIÓN</span>
+            </button>
+
+        </div>
+    </div>
+
+</div>

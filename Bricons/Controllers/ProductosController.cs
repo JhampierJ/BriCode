@@ -20,15 +20,45 @@ namespace Bricons.Controllers
         }
 
         // GET: Productos
-        public async Task<IActionResult> Index(int categoria)
+        public async Task<IActionResult> Index(int cat)
         {
-            var briconsContext = _context.Producto.Include(p => p.Categoria);
-            return View(await briconsContext.ToListAsync());
+    
+            var prodcutos = await _context.Producto.Where(p=>p.CategoriaID==cat).ToArrayAsync();;
+
+
+            return View(prodcutos);
         }
         public async Task<IActionResult> Categorias()
         {
             return View();
         }
+        public ActionResult BuscarProductos(string palb)
+        {
+            var productosEncontrados = new List<Producto>();
+            if (palb == null) return Json(productosEncontrados);
+
+            var productos = _context.Producto.ToList();
+          
+
+            foreach (var producto in productos)
+            {
+                string nombreP = producto.NombreProducto.ToUpper();
+                bool conicide = true;
+                for (int i = 0; i < palb.Length && i < nombreP.Length; i++)
+                {
+
+                    if (nombreP[i] != palb[i])
+                    {
+                        conicide = false;
+                        break;
+                    } 
+                }
+                if(conicide) productosEncontrados.Add(producto);
+            }
+
+            return Json(productosEncontrados);
+        }
+
 
         // GET: Productos/Details/5
         public async Task<IActionResult> Details(int? id)

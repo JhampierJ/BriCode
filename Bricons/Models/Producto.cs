@@ -18,7 +18,7 @@ namespace Bricons.Models
         public int? Stock { get; set; }
         [Required(ErrorMessage = "La imagen es obligatoria")]
         [Display(Name = "Imagen de producto")]
-        public byte[] Imagen { get; set; }
+        public string Imagen { get; set; }
         [Required(ErrorMessage = "La descripción es obligatoria")]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
@@ -44,6 +44,6 @@ namespace Bricons.Models
 
         //public float Calificacion { get; set; }
         //public float TotalCalificacion { get; set; }
-        public ICollection<PedidoProducto> PedidoProductos { get; set; }
+        public ICollection<CotizacionProducto> CotizacionProductos { get; set; }
     }
 }

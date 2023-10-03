@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Bricons.Migrations
 {
     /// <inheritdoc />
-    public partial class myMIGRATION : Migration
+    public partial class migra : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -84,7 +84,7 @@ namespace Bricons.Migrations
                     CategoriaID = table.Column<int>(type: "int", nullable: false),
                     NombreProducto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
-                    Imagen = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Peso = table.Column<float>(type: "real", nullable: false),
                     Largo = table.Column<float>(type: "real", nullable: false),
@@ -135,7 +135,7 @@ namespace Bricons.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pedido",
+                name: "Cotizacion",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -143,10 +143,31 @@ namespace Bricons.Migrations
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
                     ProductoId = table.Column<int>(type: "int", nullable: false),
                     FechaEntrega = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaVencimineto = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Sucursal = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Pais = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ciudad = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cotizacion", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cotizacion_Usuario_UsuarioId",
+                        column: x => x.UsuarioId,
+                        principalTable: "Usuario",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pedido",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UsuarioId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -155,8 +176,7 @@ namespace Bricons.Migrations
                         name: "FK_Pedido_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -272,23 +292,23 @@ namespace Bricons.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PedidoProducto",
+                name: "CotizacionProducto",
                 columns: table => new
                 {
-                    PedidoId = table.Column<int>(type: "int", nullable: false),
+                    CotizacionId = table.Column<int>(type: "int", nullable: false),
                     ProductoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PedidoProducto", x => new { x.PedidoId, x.ProductoId });
+                    table.PrimaryKey("PK_CotizacionProducto", x => new { x.CotizacionId, x.ProductoId });
                     table.ForeignKey(
-                        name: "FK_PedidoProducto_Pedido_PedidoId",
-                        column: x => x.PedidoId,
-                        principalTable: "Pedido",
+                        name: "FK_CotizacionProducto_Cotizacion_CotizacionId",
+                        column: x => x.CotizacionId,
+                        principalTable: "Cotizacion",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PedidoProducto_Producto_ProductoId",
+                        name: "FK_CotizacionProducto_Producto_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Producto",
                         principalColumn: "Id",
@@ -340,14 +360,19 @@ namespace Bricons.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pedido_UsuarioId",
-                table: "Pedido",
+                name: "IX_Cotizacion_UsuarioId",
+                table: "Cotizacion",
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PedidoProducto_ProductoId",
-                table: "PedidoProducto",
+                name: "IX_CotizacionProducto_ProductoId",
+                table: "CotizacionProducto",
                 column: "ProductoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pedido_UsuarioId",
+                table: "Pedido",
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Producto_CategoriaID",
@@ -384,7 +409,10 @@ namespace Bricons.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PedidoProducto");
+                name: "CotizacionProducto");
+
+            migrationBuilder.DropTable(
+                name: "Pedido");
 
             migrationBuilder.DropTable(
                 name: "Programacion");
@@ -396,7 +424,7 @@ namespace Bricons.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Pedido");
+                name: "Cotizacion");
 
             migrationBuilder.DropTable(
                 name: "Producto");
