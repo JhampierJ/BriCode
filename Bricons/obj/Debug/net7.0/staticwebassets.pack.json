@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Bricons.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\TablaCot..css",
+      "PackagePath": "staticwebassets\\css\\TablaCot..css"
+    },
+    {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\categoriaP.css",
       "PackagePath": "staticwebassets\\css\\categoriaP.css"
     },
@@ -107,6 +111,10 @@
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\img\\logotipo.png",
       "PackagePath": "staticwebassets\\img\\logotipo.png"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\cotizacion.js",
+      "PackagePath": "staticwebassets\\js\\cotizacion.js"
     },
     {
       "Id": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\encabezado.js",

@@ -42,7 +42,6 @@ public class BriconsContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Bricons.Models.Pedido> Pedido { get; set; } = default!;
 
-    public DbSet<Bricons.Models.Programacion> Programacion { get; set; } = default!;
     public DbSet<Bricons.Models.CotizacionProducto> CotizacionProducto { get; set; } = default!;
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }

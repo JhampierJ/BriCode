@@ -24,7 +24,7 @@ const clickInputAgregar = (elemento, idP) => {
         if (e.id == idP) {
             encontrado = true;
             elemento.value = "A\u00F1adir a carretilla";
-            elemento.style.backgroundColor = "#E28762";
+            elemento.style.backgroundColor = "#DE001A"; 
             obejtos.splice(index, 1);
             localStorage.setItem("ids", JSON.stringify(obejtos));
 
@@ -36,12 +36,13 @@ const clickInputAgregar = (elemento, idP) => {
     if (!encontrado) {
         let obj = {
             id: idP,
-            estado: true
+            estado: true,
+            cantidad:1000
         }
         obejtos.push(obj);
         localStorage.setItem("ids", JSON.stringify(obejtos));
         elemento.value = "A\u00F1adido";
-        elemento.style.backgroundColor = "#FF4A4D";
+        elemento.style.backgroundColor = "#5E3327";
 
 
         nPROD.textContent = numTotal+1;

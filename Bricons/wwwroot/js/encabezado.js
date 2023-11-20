@@ -26,7 +26,7 @@ carretillaContainer.addEventListener("click", () => {
     });
 
 
-    window.location.href = "/Cotizaciones/Index?numeros=" + numeros.join(',');
+    window.location.href = "/Cotizacions/Index?numeros=" + numeros.join(',');
     //alert(numeros);
 
     //fetch("/Cotizaciones/Index?numeros=" + numeros.join(','), {
@@ -85,11 +85,12 @@ inputBuscador.addEventListener("keyup", () => {
                         productosHTM +=
                             `
                         <div class="result">
-                            <p class="categoriaP">  ${catego}</p>
+                            <p class="categoriaP">  1${catego}</p>
                               <a class="prdo" href="/Productos/Details/${p.id}">
                               <img src="${p.imagen}" alt="hola" />
                                 <span>${p.nombreProducto}</span>
                               </a>
+
                         </div>
 
                         `
@@ -164,6 +165,35 @@ responsive();
 window.addEventListener("resize", responsive);
 resultadoBusqueda.style.justifyContent = "center";
 
+
+/**User */
+
+const userIcon = document.getElementById("user-icon");
+const userInfoContenedor = document.querySelector(".user-info-contenedor");
+const fondoUser = document.getElementById("fondo");
+const equisUser = document.getElementById("equisUser");
+
+equisUser.addEventListener("click", () => {
+    userInfoContenedor.classList.remove("activo");
+    fondoUser.classList.remove("activo");
+});
+
+fondoUser.addEventListener("click", () => {
+    userInfoContenedor.classList.remove("activo");
+    fondoUser.classList.remove("activo");
+});
+
+userIcon.addEventListener("click", () => {
+    userInfoContenedor.classList.toggle("activo");
+    if (userInfoContenedor.classList.contains("activo")) {
+        fondoUser.classList.add("activo");
+    } else {
+        fondoUser.classList.remove("activo");
+    }
+});
+
+
+
 //const idsProductosCarrito = [];
 //localStorage.setItem("ids", JSON.stringify(idsProductosCarrito));
 if (!localStorage.getItem("ids")) {
@@ -173,4 +203,7 @@ if (!localStorage.getItem("ids")) {
 
 let nPROD = document.querySelector(".numero-productos");
 
-nPROD.textContent = JSON.parse(localStorage.getItem("ids")).length;
+let valorLocalStorague = JSON.parse(localStorage.getItem("ids"));
+nPROD.textContent = valorLocalStorague.length;
+
+

@@ -9,13 +9,6 @@ namespace Bricons.Models
         [Required(ErrorMessage = "El ID Usuario es obligatorio")]
         [Display(Name = "ID Usuario")]
         public int? UsuarioId { get; set; }
-        [Required(ErrorMessage = "El ID Producto es obligatorio")]
-        [Display(Name = "ID Producto")]
-        public int? ProductoId { get; set; }
-        [Required(ErrorMessage = "La fecha es obligatoria")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime? FechaEntrega { get; set; }
 
         [Required(ErrorMessage = "La fecha de vencimiento es obligatoria")]
         [DataType(DataType.Date)]
@@ -23,7 +16,7 @@ namespace Bricons.Models
         public DateTime? FechaVencimineto { get; set; }
 
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "Planta")]
+        [Display(Name = "Sucursal")]
         public string Sucursal { get; set; }
 
         [Required(ErrorMessage = "El pais es obligatorio")]
@@ -39,7 +32,7 @@ namespace Bricons.Models
         [Required(ErrorMessage = "El estado es obligatorio")]
         [Display(Name = "Estado")]
         public string Estado { get; set; }
-
+        public bool confirmacion { get; set; } = false;
         public virtual Usuario? Usuario { get; set; }
 
         public ICollection<CotizacionProducto> CotizacionProductos { get; set; }

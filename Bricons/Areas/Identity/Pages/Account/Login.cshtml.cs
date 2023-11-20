@@ -129,7 +129,7 @@ namespace Bricons.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Inicio de sesion no valida");
+                    ModelState.AddModelError(string.Empty, "Correo o contraseña no validos");
                     return Page();
                 }
             }

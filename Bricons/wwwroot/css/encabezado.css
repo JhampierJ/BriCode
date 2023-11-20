@@ -373,6 +373,183 @@ main {
     margin-top: 115px;
     width: 100%;
 }
+
+
+/*Usuario*/
+header .user-info {
+    position: relative;
+    z-index: 252;
+}
+#fondo{
+    position:absolute;
+    width:100%;
+    left:0;
+    top:0;
+    height:100vh;
+    background-color:transparent;
+    z-index:-10;
+    display:none;
+}
+#fondo.activo {
+    display:block;
+}
+header .user-info-contenedor {
+    z-index: 255;
+    position: absolute;
+    left: -310px;
+    top: 40px;
+    background-color: #282A2C;
+    border-radius: 20px;
+    width: 350px;
+    color: white;
+    padding: 15px 5px;
+    display:none;
+}
+header .user-info-contenedor.activo {
+    display:block;
+}
+
+header .user-info-contenedor .p1{
+    display:flex;
+  
+    align-items:center;    
+}
+header .user-info-contenedor .p1 {
+        display: flex;
+        align-items: center;
+        padding:0 10px;
+        position:relative;
+}
+header .user-info-contenedor .email {
+       
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:0 10px;
+        font-size:13px;
+}
+header .user-info-contenedor .equis {
+        width: 10%;
+        position:absolute;
+        font-size:30px;
+        color:white;
+        right:0
+}
+
+header .user-info-contenedor .p2 {
+      
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin:5px;
+        gap:10px;
+}
+
+ header .user-info-contenedor .img-perfil {
+        width: 50px;
+ 
+ }
+    header .user-info-contenedor .p3 {
+        
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    header .user-info-contenedor .p3 .edit{
+        border: 2px solid #696A6C;
+        padding:5px 17px;
+        border-radius:10px;
+
+        color:#50A9D0;
+
+    }
+
+
+    header .user-info-contenedor .p4 {
+ 
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    header .user-info-contenedor .p4 {
+   
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        margin: 15px;
+        color:white;
+    }
+    
+    
+    header .user-info-contenedor .p41 {
+        display:flex;
+    
+        justify-content:center;
+        align-items:center;
+        width:100%;
+        height:50px;
+        border-radius:0px 20px 20px 0;
+        background-color:black;
+        color:white;
+        cursor:pointer;
+        gap:5px;
+        overflow:hidden;
+           
+    }
+        header .user-info-contenedor .p41:hover {
+            background-color: #37393B;
+        }
+
+        header .user-info-contenedor .p41 ion-icon {
+            color: white;
+        }
+        header .user-info-contenedor .p41 button {
+            background-color: inherit;
+            border:none;
+            color:white;
+            font-size:17px;
+            width:100%;
+            height:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+        }
+    header .user-info-contenedor .p42 {
+     
+        border-radius: 20px 0px 0px 20px;
+    }
+    header .user-info-contenedor .p4 a {
+        text-decoration:none;
+        color:white;
+    }
+    header .user-info-contenedor .p5 {
+       
+        padding:0 15px;
+
+    }
+        header .user-info-contenedor .p5 {
+           
+            font-size: 12px;
+            display:flex;
+            justify-content:space-between;
+            flex-direction: row;
+          
+        }
+    header .user-info-contenedor .p5 a{
+
+        text-decoration:none;
+        color:white;
+    }
+        
+
+
+
+
+
 /*Responsive*/
 @media (max-width: 865px) {
     header .controles-usuario {

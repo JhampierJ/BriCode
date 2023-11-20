@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VV5ZWhLfBT58xgvn0OP7J1dVTYuZ2ZUmeVjFblsCa7E=",
+  "Hash": "cvbhD+WPk7vV7bUhb3b8x5kR06Xk2LOAsbi07o5EJwY=",
   "Source": "Bricons",
   "BasePath": "_content/Bricons",
   "Mode": "Default",
@@ -1190,6 +1190,23 @@
       "OriginalItemSpec": "wwwroot\\css\\productos.css"
     },
     {
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\css\\TablaCot..css",
+      "SourceId": "Bricons",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\",
+      "BasePath": "_content/Bricons",
+      "RelativePath": "css/TablaCot..css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\TablaCot..css"
+    },
+    {
       "Identity": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\favicon.ico",
       "SourceId": "Bricons",
       "SourceType": "Discovered",
@@ -1511,6 +1528,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Productos\\Muro\\tabique-8.png"
+    },
+    {
+      "Identity": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\cotizacion.js",
+      "SourceId": "Bricons",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\",
+      "BasePath": "_content/Bricons",
+      "RelativePath": "js/cotizacion.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cotizacion.js"
     },
     {
       "Identity": "C:\\Users\\Usuario\\Desktop\\Nueva carpeta (2)\\New Bricons\\Bricons\\wwwroot\\js\\encabezado.js",

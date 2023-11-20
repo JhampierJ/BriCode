@@ -1,0 +1,164 @@
+﻿@using Bricons.Areas.Identity.Data;
+@model Bricons.Models.Cotizacion
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var usuario = ViewBag.Usuario as Usuario;
+    var EmailUser = ViewBag.EmailUser as string;
+}
+@section styles{
+    <style>
+        .cotizarC {
+            width: 100%;
+            height: 100vh;
+            background-color: #2B3035;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -120px;
+            flex-direction:column;
+       }
+       .cotizarC .containerL {
+           width:800px;
+      
+           display:flex;
+           gap:15px;
+       }
+
+            .cotizarC .cuadros{
+   
+                width:100%;
+                display:flex;
+                flex-direction:column;
+                gap: 18px;
+            }
+
+             .cotizarC .cuadros .inputs {
+                    color: #A0A0A0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap:5px;
+                color:white;
+                font-size:17px;
+                font-weight:900;
+               
+            }
+
+            .cotizarC .cuadros input{
+                    border: none;
+                    outline: none;
+                    color:white;
+                    height: 35px;
+                    width: 100%;
+                    padding-left: 5px;
+                   
+                    font-size: 13x;
+                    font-weight: 600;
+            }
+
+                .cotizarC .cuadros .boton {
+                    width: 100%;
+                    height: 45px;
+                    font-size: 15px;
+                    font-weight: 900;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #204D6D;
+                    color: white;
+                    cursor: pointer;
+                }
+
+            .cotizarC .boton:hover {
+            background-color: #55CABD;
+        }
+
+    </style>
+}
+<div class="cotizarC">
+    <h1 style="color:white;margin-bottom:25px;border-bottom:4px solid #55CABD">
+        Cotizar
+    </h1>
+    <div class="containerL">
+        <div class="cuadros">
+            <div class="inputs">
+                <label>Nombres y Apellidos</label>
+                <input value="@usuario.Nombre  @usuario.Apellidos" disabled />
+            </div>
+            <div class="inputs">
+                <label>Tipo Documento</label>
+                <input value="@usuario.Dni" disabled />
+            </div>
+            <div class="inputs">
+                <label>Telefono</label>
+                <input value="@usuario.Telefono" disabled />
+            </div>
+            <div class="inputs">
+                <label>Email</label>
+                <input value="@EmailUser" disabled />
+            </div>
+        </div>
+        <div class="cuadros">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="inputs" style="color:black">
+                <label style="color:white" asp-for=" Sucursal" class="control-label"></label>
+                <select style="height:35px" id="COTSucursal" asp-for="Pais">
+                    <option value="Cajamarca">Cajamarca</option>
+                    <option value="Trujillo">Trujillo</option>
+                </select>
+
+
+            </div>
+            <div class="inputs"  style="color:black">
+                <label style="color:white" asp-for="Pais"></label>
+                <select style="height:35px"  style="color:black" id="COTPais" asp-for="Sucursal">
+                    <option value="Perú">Perú</option>
+                </select>
+
+            </div>
+            <div class="inputs">
+                <label asp-for="Direccion">Direccion de entrega</label>
+                <input style="color:black" id="COTDireccion" asp-for="Direccion" class="form-control" />
+                <span id="CODAlertDir"></span>
+            </div>
+            <div class="form-group">
+                <input  class="boton" id="finalizarCoti" type="submit" value="Cotizar" />
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+<script>
+    const finalizarCoti = document.getElementById("finalizarCoti");
+    finalizarCoti.addEventListener("click", () => {
+        alert("Hola")
+        if (COTDireccion.value == "") {
+
+            CODAlertDir.innerHTML = "Campo obligatorio";
+            return;
+        }
+        let obejc = {
+            Sucursal: COTSucursal.value,
+            Pais: COTPais.value,
+            Direccion: COTDireccion.value,
+            Productos: localStorage.getItem("ids")
+        }
+        let json = JSON.stringify(obejc);
+        $.ajax({
+            url: '/Cotizacions/Crear',
+            type: 'GET',
+            data: { datos: json },
+            success: function (result) {
+                alert(result);
+                window.location.href = "/Cotizacions/MostrarLista?";
+                console.log('Datos guardados exitosamente en el servidor');
+            },
+            error: function (error) {
+                // Maneja los errores si es necesario
+                console.error('Ha ocurrido un error al intentar guardar los datos');
+            }
+        });
+    });
+</script>

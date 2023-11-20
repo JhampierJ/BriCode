@@ -67,7 +67,7 @@ main .sect-prod {
     flex-direction: column;
     width: 85%;
     background-color: var(--color-container-producto);
-    border: 2px solid var(--color-boton-borde);
+   
     background-color: #fff;
 }
 
@@ -93,10 +93,8 @@ main .sect-prod {
 .sect-prod .producto input {
     border: none;
     outline: none;
-   /* background-color: var(--color-boton);*/
-    color: var(--color-boton-letra);
-    border: 3px solid var(--color-boton-borde);
-    font-size: 18px;
+    color: white;
+    font-size: 14px;
     font-weight: 500;
     padding: 7px 13px;
     margin: 10px;
@@ -110,7 +108,7 @@ main .sect-prod {
 
 .sect-prod .producto .agregado {
     background: #FBAC7E;
-    ;
+    
     color: white;
 }
 

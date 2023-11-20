@@ -17,7 +17,7 @@ namespace Bricons.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -129,10 +129,6 @@ namespace Bricons.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("FechaEntrega")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime?>("FechaVencimineto")
                         .IsRequired()
                         .HasColumnType("datetime2");
@@ -141,10 +137,6 @@ namespace Bricons.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductoId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
                     b.Property<string>("Sucursal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -152,6 +144,9 @@ namespace Bricons.Migrations
                     b.Property<int?>("UsuarioId")
                         .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<bool>("confirmacion")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -168,6 +163,9 @@ namespace Bricons.Migrations
                     b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
                     b.HasKey("CotizacionId", "ProductoId");
 
                     b.HasIndex("ProductoId");
@@ -177,16 +175,29 @@ namespace Bricons.Migrations
 
             modelBuilder.Entity("Bricons.Models.Pedido", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PedidoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PedidoId"));
+
+                    b.Property<int>("CotizacionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("FechaEntrega")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("UsuarioId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("PedidoId");
+
+                    b.HasIndex("CotizacionId");
 
                     b.HasIndex("UsuarioId");
 
@@ -229,6 +240,9 @@ namespace Bricons.Migrations
                     b.Property<float>("Peso")
                         .HasColumnType("real");
 
+                    b.Property<float>("Precio")
+                        .HasColumnType("real");
+
                     b.Property<int?>("Stock")
                         .IsRequired()
                         .HasColumnType("int");
@@ -238,35 +252,6 @@ namespace Bricons.Migrations
                     b.HasIndex("CategoriaID");
 
                     b.ToTable("Producto");
-                });
-
-            modelBuilder.Entity("Bricons.Models.Programacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("Fecha")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ProductoId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductoId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Programacion");
                 });
 
             modelBuilder.Entity("Bricons.Models.Usuario", b =>
@@ -473,9 +458,17 @@ namespace Bricons.Migrations
 
             modelBuilder.Entity("Bricons.Models.Pedido", b =>
                 {
+                    b.HasOne("Bricons.Models.Cotizacion", "Cotizacion")
+                        .WithMany()
+                        .HasForeignKey("CotizacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Bricons.Models.Usuario", null)
                         .WithMany("Pedidos")
                         .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Cotizacion");
                 });
 
             modelBuilder.Entity("Bricons.Models.Producto", b =>
@@ -487,25 +480,6 @@ namespace Bricons.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("Bricons.Models.Programacion", b =>
-                {
-                    b.HasOne("Bricons.Models.Producto", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Bricons.Models.Usuario", "User")
-                        .WithMany("Programaciones")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Producto");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -577,8 +551,6 @@ namespace Bricons.Migrations
             modelBuilder.Entity("Bricons.Models.Usuario", b =>
                 {
                     b.Navigation("Pedidos");
-
-                    b.Navigation("Programaciones");
                 });
 #pragma warning restore 612, 618
         }

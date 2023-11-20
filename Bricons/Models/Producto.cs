@@ -37,9 +37,9 @@ namespace Bricons.Models
         [Required(ErrorMessage = "Campo obligatorio")]
         [Range(typeof(decimal), "0.01", "9999.99", ErrorMessage = "El valor debe estar entre 0.01 y 9999.99")]
         [Display(Name = "Altura")]
-        public float Altura { get; set; } 
+        public float Altura { get; set; }
 
-
+        public float Precio { get; set; }
         public virtual Categorium? Categoria { get; set; }
 
         //public float Calificacion { get; set; }

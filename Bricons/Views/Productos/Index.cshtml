@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Bricons.Models.Producto> 
+﻿                                                                                                   @model IEnumerable<Bricons.Models.Producto> 
 
 
 @{
@@ -22,9 +22,10 @@
                             </a>
 
                         </div>
-                        <h2>
+                        <h2 style="font-size:16px">
                             @pto.NombreProducto
                         </h2>
+                        <h3 style="color:red; font-size:16px"> S/ @pto.Precio</h3>
                         <p>
 
                         </p>
@@ -40,7 +41,7 @@
                         if (e.id == @pto.Id) {
                             encontrado1 = true;
                             btnAdir1.value = "A\u00F1adido";
-                            btnAdir1.style.backgroundColor = "#FF4A4D";
+                            btnAdir1.style.backgroundColor = "#5E3327";
                            
                             return;
                         }
@@ -48,7 +49,7 @@
                     if (!encontrado1) {
 
                         btnAdir1.value = "A\u00F1adir a carretilla";
-                        btnAdir1.style.backgroundColor = "#E28762";
+                        btnAdir1.style.backgroundColor = "#DE001A";
                     }
            
                 </script>

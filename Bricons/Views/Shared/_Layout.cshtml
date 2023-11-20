@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="~/css/productos.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/detalleProducto.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/cotizacion.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <header>
@@ -66,6 +67,27 @@
                     <li>
                         <a asp-controller="Productos" asp-action="Categorias">Productos</a>
                     </li>
+
+                    @if (User.IsInRole(CNT.Admin))
+                    {
+                        <li>
+                            <a asp-controller="Cotizacions" asp-action="MostrarListaAdmin">Cotizaciones</a>
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action="">Pedidos</a>
+                        </li>
+                    }
+                    else if (User.IsInRole(CNT.Usuario))
+                    {
+                        <li>
+                            <a asp-controller="Cotizacions" asp-action="MostrarLista">Cotizaciones</a>
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action="">Pedidos</a>
+                        </li>
+                    }
+                  
+
                 </ul>
             </div>
 
@@ -101,10 +123,67 @@
                 </a>
 
                @*  <button id="btn-sign-up">INICIAR SESION</button> *@
-                <a id="btn-sign-up" asp-area="Identity" asp-page="/Account/Login">
-                    <ion-icon name="log-in"></ion-icon>
-                </a>
-                @*      <a id="btn-sign" asp-area="Identity" asp-page="/Account/Register">REGISTRO</a> *@
+               
+                @*<a id="btn-sign" asp-area="Identity" asp-page="/Account/Register">REGISTRO</a> *@
+@* 
+                <ion-icon style="display:none" id="equisUser" class="equis" name="close-outline"></ion-icon>
+                <div style="display:none" id="fondo"></div> *@
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div id="fondo"></div> 
+                    <div class="user-info">
+                        <ion-icon id="user-icon" name="person-circle"></ion-icon>
+                        <div class="user-info-contenedor">
+                            <div class="p1">
+                                <span class="email">jhampier@gmail.com</span>
+                                <ion-icon id="equisUser" class="equis" name="close-outline"></ion-icon>
+                            </div>
+                            <div class="p2">
+                                <img class="img-perfil" src="/img/isotipo.png">
+                                <span class="nombre">Hola, Jhampier </span>
+                    
+                            </div>
+                            <div class="p3">
+                                <a class="edit">Editar tu cuenta Bricons</a>
+                            </div>
+                            <div class="p4">
+                                <div class="p41 p42">
+                                    <ion-icon name="add-outline"></ion-icon>
+                                    <a>Cotizaciones</a>
+                                </div>
+                                <form class="p41"  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                   
+                                    <button>
+                                        <ion-icon name="exit-outline"></ion-icon>
+                                        Salir
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="p5">
+                                <a>Politica de provacidad</a>
+                                <a>Condiciones del servicio</a>
+                         
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <a style="display:none" id="btn-sign-up" asp-area="Identity" asp-page="/Account/Login">
+                        <ion-icon name="log-in"></ion-icon>
+                    </a>
+
+                    @* <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+                    </form> *@
+                }else{
+                    <ion-icon style="display:none" id="user-icon" name="person-circle"></ion-icon>
+                    <a id="btn-sign-up" asp-area="Identity" asp-page="/Account/Login">
+                        <ion-icon name="log-in"></ion-icon>
+                    </a>
+                    <ion-icon style="display:none" id="equisUser" class="equis" name="close-outline"></ion-icon>
+                    <div style="display:none" id="fondo"></div>
+                }
                 <ion-icon id="btn-menu" name="menu"></ion-icon>
             </div>
         </div>
@@ -180,9 +259,10 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
    <script src="~/js/encabezado.js" asp-append-version="true"></script>
     <script src="~/js/productos.js" asp-append-version="true"></script>
+    <script src="~/js/cotizacion.js" asp-append-version="true"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    
 
 
     @await RenderSectionAsync("Scripts", required: false)

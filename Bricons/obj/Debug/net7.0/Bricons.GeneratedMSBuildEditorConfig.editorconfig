@@ -176,28 +176,60 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXENyZWF0ZS5jc2h0bWw=
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/CotizacionProductoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvblByb2R1Y3RvZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXERlbGV0ZS5jc2h0bWw=
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/CotizacionProductoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvblByb2R1Y3RvZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXERldGFpbHMuY3NodG1s
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/CotizacionProductoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvblByb2R1Y3RvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXEVkaXQuY3NodG1s
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/CotizacionProductoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvblByb2R1Y3RvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXEluZGV4LmNzaHRtbA==
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/CotizacionProductoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvblByb2R1Y3RvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizaciones/IndexOr.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbmVzXEluZGV4T3IuY3NodG1s
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/CreateL.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcQ3JlYXRlTC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/MostrarLista.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcTW9zdHJhckxpc3RhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/MostrarListaAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcTW9zdHJhckxpc3RhQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Cotizacions/Revisar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ290aXphY2lvbnNcUmV2aXNhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Usuario/Desktop/Nueva carpeta (2)/New Bricons/Bricons/Views/Home/Index.cshtml]

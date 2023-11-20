@@ -1,0 +1,259 @@
+﻿@model IEnumerable<Bricons.Models.Producto>
+@using Bricons.Utilities
+@using Microsoft.AspNetCore.Identity
+@using Bricons.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="conti">
+    <div class="container">
+        <div class="contenedor-tabla">
+            <h2 class="title"> COTIZACIÓN </h2>
+           
+            <div class="table" style="margin-bottom:20px">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th style="text-align:left; font-size:20px;">Producto</th>
+                            <th style="text-align:left; font-size:20px;">Precio</th>
+                            <th style="text-align:left; font-size:20px;">Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cuerpo">
+                        @foreach (var pto in @Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@pto.Imagen" alt="">
+                                </td>
+                                <td class="nombre-producto">
+                                    @pto.NombreProducto
+                                </td>
+                                <td style="text-align:left" class="precio" id="p_@pto.Id" data-valor="@pto.Precio">
+                                     
+                                </td>
+                                <td class="cantidad">
+                                    <div class="cuadros">
+                                        <div class="cuadro plus-left" style="margin-right:10px">
+                                            unid:
+                                        </div>
+                                        <input id="@pto.Id" class="cuadroCAN" type="number" value="0">
+                                        <div class="cuadro plus-right" style="margin-left:5px; width:50px">
+                                            <ion-icon name="trash" onclick="EliminarPC(@pto.Id)"></ion-icon>
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                           
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div class="CotBTN">
+                <button id="btnVaciarCoti">
+                    <ion-icon name="close"></ion-icon>
+                    <span>VACIAR COTIZACIÓN</span>
+                </button>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <form  asp-action="CreateL" method="get">
+                        <button>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                            <span>FINALIZAR COTOZACIÓN</span>
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <form asp-area="Identity" asp-page="/Account/Login" method="get">
+                        <button>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                            <span>FINALIZAR COTOZACIÓN</span>
+                        </button>
+                    </form>
+                }
+                <div>
+                    Total: S/ <span id="totalP"></span>
+                </div>
+                
+            </div>
+          
+        </div>
+    </div>
+    <script>
+        const btnVaciarCoti = document.getElementById("btnVaciarCoti");
+        btnVaciarCoti.addEventListener("click", () => {
+            const idsProductosCarrito = [];
+            localStorage.setItem("ids", JSON.stringify(idsProductosCarrito));
+            tablaBody.innerHTML = "";
+            numP.textContent = 0;
+        });
+     
+        let obejtos = JSON.parse(localStorage.getItem("ids"));
+
+
+        // Sincronizar el span con el input correspondiente
+
+
+
+        const EliminarPC = (id) => {
+            let index = 0;
+            obejtos.forEach((obj) => {
+                if (obj.id == id) {
+
+                    obejtos.splice(index, 1);
+                    localStorage.setItem("ids", JSON.stringify(obejtos));
+                    return;
+                }
+                index++;
+            });
+            let obejtos2 = JSON.parse(localStorage.getItem("ids"));
+            let numeros = [];
+            obejtos2.forEach((obj) => {
+                numeros.push(obj.id);
+            });
+
+            window.location.href = "/Cotizacions/Index?numeros=" + numeros.join(',');
+        }
+
+        const cuadros = document.querySelectorAll(".conti .cuadroCAN");
+
+        cuadros.forEach((cud) => {
+
+
+            cud.addEventListener("blur", () => {
+                if (cud.value < 1000) {
+                    cud.value = 1000;
+                    alert("La cantidad no puede ser menor a 1000");
+                } else if (cud.value > 20000) {
+                    cud.value = 20000;
+                    alert("La cantidad no puede ser mayor a 20000");
+                }
+
+                let obj = JSON.parse(localStorage.getItem("ids"));
+                //obj.forEach((o) => {
+                //    if (o.id == cud.id) {
+                //        o.cantidad = cud.value;
+                //    }
+                //});
+                for (let i = 0; i < obj.length; i++) {
+                    if (obj[i].id === cud.id) {
+                        obj[i].cantidad = cud.value;
+                        let precio = document.getElementById("p_" + obj[i].id);
+                        let valor = precio.getAttribute('data-valor');
+                        let precioNumerico = parseFloat(valor) * parseFloat(cud.value);
+                        precio.textContent = "S/" + (precioNumerico.toFixed(2));
+                        // updateTotal();
+                    }
+                }
+                localStorage.setItem("ids", JSON.stringify(obj));
+
+                updateTotal();
+            });
+            //enter
+            cud.addEventListener('keypress', (evt) => {
+                if (evt.key === 'Enter' || evt.keyCode === 13) {
+                    if (cud.value < 1000) {
+                        cud.value = 1000;
+                        alert("La cantidad no puede ser menor a 1000");
+                    } else if (cud.value > 20000) {
+                        cud.value = 20000;
+                        alert("La cantidad no puede ser mayor a 20000");
+                    }
+
+                    let obj = JSON.parse(localStorage.getItem("ids"));
+                    for (let i = 0; i < obj.length; i++) {
+                        if (obj[i].id === cud.id) {
+                            obj[i].cantidad = cud.value;
+                            let precio = document.getElementById("p_" + obj[i].id);
+                            let valor = precio.getAttribute('data-valor');
+                            let precioNumerico = parseFloat(valor) * parseFloat(cud.value);
+                            precio.textContent = "S/" + (precioNumerico.toFixed(2));
+                            //updateTotal();
+                        }
+                    }
+                    localStorage.setItem("ids", JSON.stringify(obj));
+
+                }
+                updateTotal();
+
+            });
+            cud.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    if (cud.value < 1000) {
+                        cud.value = 1000;
+                        alert("La cantidad no puede ser menor a 1000");
+                    } else if (cud.value > 20000) {
+                        cud.value = 20000;
+                        alert("La cantidad no puede ser mayor a 20000");
+                    }
+
+                }
+                let obj = JSON.parse(localStorage.getItem("ids"));
+                //obj.forEach((o) => {
+                //    if (o.id == cud.id) {
+                //        o.cantidad = cud.value;
+                //    }
+                //});
+                for (let i = 0; i < obj.length; i++) {
+                    if (obj[i].id === cud.id) {
+                        obj[i].cantidad = cud.value;
+                        //let precio = document.getElementById("p_" + obj[i].id);
+                        //let valor = precio.getAttribute('data-valor');
+                        //let precioNumerico = parseFloat(valor) * parseFloat(cud.value);
+                        //precio.textContent = "S/" + (precioNumerico);
+
+                    }
+                }
+                localStorage.setItem("ids", JSON.stringify(obj));
+            });
+        });
+
+
+
+
+        const COTSucursal = document.getElementById("COTSucursal");
+        const COTPais = document.getElementById("COTPais");
+        const COTDireccion = document.getElementById("COTDireccion");
+        const CODAlertDir = document.getElementById("CODAlertDir");
+        const productoss = document.querySelectorAll(".cuadroCAN");
+        const precioss = document.querySelectorAll(".precio");
+
+        const tablaBody = document.getElementById("tabla-cuerpo");
+        const numP = document.getElementById("numero-productos");
+
+
+
+
+
+       
+
+        const updateTotal = () => {
+            let total = 0.0;
+            productoss.forEach((pt) => {
+                valorLocalStorague.forEach((pt2) => {
+                    if (pt.id == pt2.id) {
+
+                        let precio = document.getElementById("p_" + pt.id);
+                        let valor = precio.getAttribute('data-valor');
+                        let precioNumerico = parseFloat(valor) * parseFloat(pt.value);
+                        precio.textContent = "S/" + (precioNumerico.toFixed(2));
+                        total += precioNumerico;
+                    }
+                });
+            });
+            totalP.textContent = total.toFixed(2);
+
+        }
+
+    </script>
+</div>

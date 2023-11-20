@@ -1,0 +1,166 @@
+﻿@model List<Cotizacion>
+@{
+    ViewData["Title"] = "MostrarLista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section Styles
+    {
+    <style>
+
+
+        .contenedorr {
+            width: 100%;
+            height: 100vh;
+            background-color: #F8F8F8;
+            margin-top: 0px;
+            padding-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        .table-coti {
+            /* Por ejemplo, quita el espacio entre las celdas de la tabla */
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+        }
+
+
+        .header-tabla {
+            width: 100%;
+        }
+
+        .cuerpo-tabla {
+            border-bottom: 4px solid #214C6B;
+            max-height: 400px;
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        th {
+            border: none;
+            background-color: #214C6B;
+            color: white;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            padding: 5px 8px;
+        }
+
+        td {
+            border: none;
+            color: black;
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+        }
+
+        .cuerpo-tabla tr {
+            border-bottom: 2px solid #D4D4D4;
+        }
+
+
+        /*Sxroll*/
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Fondo del scrollbar */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Color del thumb (la parte desplazable) del scrollbar */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            /* Hover del thumb del scrollbar */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+        .primera {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            overflow: hidden;
+            background-color: #214C6B;
+        }
+    </style>
+}
+<div class="contenedorr">
+
+    <div class="table-coti">
+
+
+        <div class="header-tabla">
+            <table>
+                <thead>
+                    <tr class="primera">
+                        <th>Código Cotización</th>
+                        <th>Fecha de vencimiento</th>
+                        <th>Sucursal</th>
+                        <th>País</th>
+                        <th>Dirección</th>
+                        <th>Estado</th>
+                        <th class="ultima">Productos</th>
+
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="cuerpo-tabla">
+            <table>
+
+                <tbody>
+                    @foreach (var coti in Model)
+                    {
+                        <tr>
+                            <td>@coti.Id</td>
+                            <td>@coti.FechaVencimineto</td>
+                            <td>@coti.Sucursal</td>
+                            <td>@coti.Pais</td>
+                            <td>@coti.Direccion</td>
+                            @if (coti.Estado == "Revision")
+                            {
+                                <td style="text-decoration:none; color:#FD9C7B">
+                                    ● Revisión
+                                </td>
+                            }
+                            else if (coti.Estado == "Pediente")
+                            {
+                                <td>
+                                    <a style="text-decoration:none; color:#FD9C7B" asp-controller="" asp-action=""> ● Pendiente</a>
+                                </td>
+                            }
+
+                            <td>
+                                <a asp-controller="" asp-action="">ver productos</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+
+
+            </table>
+
+        </div>
+
+    </div>
+</div>

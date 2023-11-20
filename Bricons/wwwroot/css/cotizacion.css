@@ -1,10 +1,23 @@
 ﻿
 
+
 .conti {
+
     max-width: 1200px;
-    margin: 15px auto;
+    margin: 150px auto;
     padding: 0 15px;
+
+    
 }
+
+    .conti .container {
+        max-width: 1200px;
+        margin: 15px auto;
+        padding: 0 15px;
+        display:flex;
+        flex-direction: row;
+     
+    }
 
     .conti .container-cot {
         margin-top: 20px;
@@ -14,7 +27,7 @@
     }
 
     .conti .contenedor-tabla {
-        width: 70%;
+        width: 100%;
         padding: 5px;
         background-color: white;
         background-color: #FFF;
@@ -36,7 +49,7 @@
         }
 
         .conti .contenedor-tabla .table {
-            height: 500px;
+            height: 400px;
             overflow-y: auto;
             overflow-x: hidden;
             width: 100%;
@@ -61,30 +74,30 @@
                 left: 30%;
             }
 
-    .conti table {
-        width: 100%;
-        border-collapse: collapse;
+.conti table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .conti table tr {
+        border-bottom: 0.5px solid #8C8282;
     }
 
-        .conti table tr {
-            border-bottom: 0.5px solid #8C8282;
-        }
+    .conti table td {
+        text-align: center;
+    }
 
-        .conti table td {
-            text-align: center;
-        }
+    .conti table .nombre-producto {
+        text-align: left;
+        padding-left: 10px;
+    }
 
-        .conti table .nombre-producto {
-            text-align: left;
-            padding-left: 10px;
-        }
-
-        .conti table img {
-            width: 80px;
-        }
+    .conti table img {
+        width: 80px;
+    }
 
     .conti .container .cuadros {
-        border: 2px solid #C5C5C5;
+     
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -99,19 +112,34 @@
             height: 100%;
             border-left: 2px solid #C5C5C5;
             border-right: 2px solid #C5C5C5;
+            border-top: none;
+            border-bottom: none;
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
 
-        .conti .container .cuadros .plus-left, main .container .cuadros .plus-right {
-            border-left: none;
-            border-right: none;
-            cursor: pointer;
+        .conti .container .cuadros .plus-left{
+            border:none;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: font-size 0.1s ease;
+            font-size:10px;
         }
-
-            .conti .container .cuadros .plus-left:hover, main .container .cuadros .plus-right:hover {
+        .conti .container .cuadros .plus-right {
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: font-size 0.1s ease;
+            font-size: 15px;
+        }
+        .conti .container .cuadros .cuadroCAN {
+            border: 2px solid #C5C5C5;
+            width:80px;
+        }
+            .conti .container .cuadros .plus-right:hover {
                 cursor: pointer;
                 font-size: 25px;
             }
@@ -120,7 +148,7 @@
         width: 120px;
     }
 
-/**/
+    /**/
     .conti .cotizacion {
         width: 30%;
         display: flex;
@@ -136,40 +164,46 @@
     }
 
         .conti .cotizacion P {
-            max-width: 300px;
+         
             margin-bottom: 15px;
             padding: 0 15px;
         }
 
-        .conti .cotizacion button {
-            border: none;
-            background-color: #017C2C;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 17px 17px 17px 5px;
-            height: 30px;
-            border-radius: 5px;
-            cursor: pointer;
+    .conti .CotBTN button {
+        border: none;
+        background-color: #E28762;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 17px 17px 17px 5px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 2px solid #965A41;
+    }
+
+        .conti .CotBTN button:hover {
+            background-color: #5E3327;
+            color:white;
         }
 
-            .conti .cotizacion button:hover {
-                background-color: #63D28A;
-            }
+    .conti .CotBTNbutton span {
+        font-size: 16px;
+        font-weight: 900;
+    }
 
-            .conti .cotizacion button span {
-                font-size: 16px;
-                font-weight: 900;
-            }
-
-            .conti .cotizacion button ion-icon {
-                font-size: 25px;
-                margin-right: 5px;
-            }
+    .conti .CotBTN button ion-icon {
+        font-size: 25px;
+        margin-right: 5px;
+    }
+.conti .CotBTN {
+    display:flex;
+    gap:15px;   
+}
 
 @media screen and (max-width:904px) {
-    .conti .container-cot {
+    .conti .container {
         flex-direction: column;
     }
 
@@ -234,3 +268,7 @@
             left: 20%;
         }
 }
+
+
+/*Tabla*/
+

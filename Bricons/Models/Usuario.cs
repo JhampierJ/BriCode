@@ -13,6 +13,6 @@
 
         public virtual ICollection<Pedido>? Pedidos { get; set; } = new List<Pedido>();
 
-        public virtual ICollection<Programacion>? Programaciones { get; set; } = new List<Programacion>();
+
     }
 }
